@@ -12,13 +12,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="流程整理1"
+            android:text="filter 过滤"
             android:onClick="click01"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="流程整理2"
+            android:text="take过滤操作符"
             android:onClick="click02"/>
 
         <Button
