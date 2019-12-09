@@ -24,13 +24,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="切断下游"
+            android:text="distinct过滤重复事件"
             android:onClick="click03"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="设计模式"
+            android:text="elementAl 指定过滤的内容"
             android:onClick="click04"/>
 
     </LinearLayout>

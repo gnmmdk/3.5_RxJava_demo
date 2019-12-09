@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Scheduler;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
@@ -65,6 +67,55 @@ public class Rx04Activity extends AppCompatActivity {
                     public void accept(Long aLong) throws Exception {
 //                        Log.d(TAG, "下游 subscribe: " + Thread.currentThread().getName());
                         Log.d(TAG, "accept: " + aLong);
+                    }
+                });
+    }
+
+    /**
+     * distinct过滤重复事件
+     * @param view
+     */
+    public void click03(View view) {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                e.onNext(1);
+                e.onNext(1);
+                e.onNext(2);
+                e.onNext(3);
+                e.onNext(4);
+                e.onNext(4);
+                e.onComplete();
+            }
+        })
+                .distinct()
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        Log.d(TAG, "accept: " + integer); // 事件不重复
+                    }
+                });
+    }
+
+    /**
+     * elementAl 指定过滤的内容
+     * @param view
+     */
+    public void click04(View view) {
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
+                e.onNext("九阴真经");
+                e.onNext("九阳真经");
+                e.onNext("易筋经");
+                e.onNext("神照经");
+                e.onComplete();
+            }
+        }).elementAt(10,"默认经")// 指定下标输出 输出结果为 默认经 如果是 elementAt(1,"默认经") 输出结果是九阳真经
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        Log.d(TAG, "accept: "+s);
                     }
                 });
     }
