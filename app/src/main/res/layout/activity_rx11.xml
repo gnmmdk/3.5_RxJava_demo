@@ -12,26 +12,19 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="流程整理1"
-            android:onClick="click01"/>
+            android:text="执行"
+            android:onClick="request"
+            />
 
-        <Button
+        <TextView
+            android:id="@+id/tv_register_ui"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="流程整理2"
-            android:onClick="click02"/>
+            android:layout_height="wrap_content" />
 
-        <Button
+        <TextView
+            android:id="@+id/tv_login_ui"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="切断下游"
-            android:onClick="click03"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设计模式"
-            android:onClick="click04"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </ScrollView>

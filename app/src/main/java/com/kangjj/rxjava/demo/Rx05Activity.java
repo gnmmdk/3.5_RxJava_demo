@@ -79,7 +79,7 @@ public class Rx05Activity extends AppCompatActivity {
 
     /**
      *  Any 和 All相反的，All全部为true，才是true，只要有一个为false，就是false
-     *  any 全部为 false，才是false， 只要有一个为true，就是true todo test
+     *  any 全部为 false，才是false， 只要有一个为true，就是true
      * @param view
      */
     public void click03(View view) {

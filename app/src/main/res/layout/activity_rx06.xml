@@ -12,26 +12,31 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="流程整理1"
+            android:text="startWith 合并操作符"
             android:onClick="click01"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="流程整理2"
+            android:text="concatWith 合并操作符"
             android:onClick="click02"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="切断下游"
+            android:text="concat 合并操作符"
             android:onClick="click03"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="设计模式"
+            android:text="merge 合并操作符"
             android:onClick="click04"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="zip 合并操作符"
+            android:onClick="click05"/>
 
     </LinearLayout>
 </ScrollView>
