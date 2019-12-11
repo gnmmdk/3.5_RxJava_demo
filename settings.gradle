@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':custom_rxjava'
 rootProject.name='3.5_RxJava_Demo'
