@@ -98,7 +98,7 @@ public class Rx04Activity extends AppCompatActivity {
     }
 
     /**
-     * elementAl 指定过滤的内容
+     * elementAt 指定过滤的内容
      * @param view
      */
     public void click04(View view) {
