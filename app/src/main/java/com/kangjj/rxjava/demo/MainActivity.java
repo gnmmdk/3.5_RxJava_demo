@@ -62,8 +62,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,Rx12Activity.class));
     }
 
-    public void click13(View view) {
-        startActivity(new Intent(this,Rx13Activity.class));
-    }
-
 }
