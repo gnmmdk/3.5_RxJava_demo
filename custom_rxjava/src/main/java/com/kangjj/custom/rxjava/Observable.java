@@ -105,6 +105,24 @@ public class Observable<T> {           //类声明的泛型T Int
         });
     }
 
+    /**
+     * Function<? super T -》方法里面没有定义 说明这个T就是类里面的T
+     * @param function
+     * @param <R>
+     * @return
+     */
+    public <R> Observable<R> map(Function<? super T,? extends R> function){
+        //todo 这里的ObservableMap不是Obervable,而是ObservableOnSubscribe，传入的source也是而是ObservableOnSubscribe
+        ObservableMap observableMap = new ObservableMap(source,function);
+        return new Observable<R>(observableMap);
+    }
+
+//    public <R> Observable<R> map(Function<T,R> function){todo 泛型的 super extends
+//        //todo 这里的ObservableMap不是Obervable,而是ObservableOnSubscribe，传入的source也是而是ObservableOnSubscribe
+//        ObservableMap observableMap = new ObservableMap(source,function);
+//        return new Observable<R>(observableMap);
+//    }
+
     // 参数中：Observer<? extends T> 和可读可写模式没有任何关系，还是我们之前的那一套思想（上限和下限）
     public void subscribe(Observer<T> observer){
 
@@ -112,4 +130,5 @@ public class Observable<T> {           //类声明的泛型T Int
 
         source.subscribe(observer);
     }
+
 }

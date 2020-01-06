@@ -82,4 +82,42 @@ public class TestActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    public void click03(View view) {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(Observer<? super Integer> emitter) {
+                emitter.onNext(2);
+                emitter.onComplete();
+            }
+        })
+        .map(new Function<Integer, String>() {
+            @Override
+            public String apply(Integer integer) {
+                Log.d(TAG, "第1个变换 apply: " + integer);
+                return "【" + integer + "】";
+            }
+        })
+        .subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe() {
+                Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
+            }
+
+            @Override
+            public void onNext(String integer) {
+                Log.d(TAG, "下游接收事件 onNext: " + integer); // 【9】-----------------------
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+                Log.d(TAG, "onComplete: 下游接收事件完成√√√√√√√√√√√√√√");
+            }
+        });
+    }
 }
