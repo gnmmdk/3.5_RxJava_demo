@@ -211,7 +211,7 @@ public class Rx03Activity extends AppCompatActivity {
 
     /**
      * 很多的数据，不想全部一起发射出去，分批次，先缓存到Buffer
-     * @param view
+     *      * @param view
      */
     public void click06(View view) {
         Observable.create(new ObservableOnSubscribe<Integer>() {

@@ -25,7 +25,10 @@ public class ObservableMap<T,R> implements ObservableOnSubscribe<R>{
 //        this.emitter = emitter;
 
         MapObserver mapObserver = new MapObserver(observableEmitter,function);//真正的Obervable
-
+        // todo A.2 这里的source在ObservableMap实例化时候传进来的，调用到哪里去了呢？看下Observable的Map方法。
+        //  走完小步骤，知道这个source是上一层生成Observable的方法传进来的（可能是Map、Create等其他方法），
+        //  这里对应到Create方法的source，所以就跑到了Click4方法的 Observer.create（ObservableOnSubscribe)里面的Subscribe
+        //   该方法的subscribe执行了onNext发射数据。注意因为这里把上一行的MapObserver传递进去了，所以是它在onNext。
         source.subscribe(mapObserver);
     }
 
@@ -46,13 +49,14 @@ public class ObservableMap<T,R> implements ObservableOnSubscribe<R>{
 
         @Override
         public void onNext(T t) {
+            //todo A.3 真正的做切换数据的操作
             /**
              * T Integer    变换     R String
              */
             R nextMapResultType = function.apply(t);            //apply 这里体现了可写 ；获取到R 体现了可读Test<? extends Person> test1 = null;  Person person = test1.get(); // 可读
-
-            // 调用下一层 onNext 方法
-            observableEmitter.onNext(nextMapResultType);
+            //todo A.4 这里的Observer<? super R> observableEmitter 是哪儿来的，看A.1
+            // 是最后要执行的onNext方法了。
+            observableEmitter.onNext(nextMapResultType);   // 调用下一层 onNext 方法
         }
 
         @Override
