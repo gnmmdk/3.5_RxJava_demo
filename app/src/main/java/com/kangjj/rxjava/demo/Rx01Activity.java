@@ -165,7 +165,7 @@ public class Rx01Activity extends AppCompatActivity {
         }
     }
 
-    public void click04(View view) {
+    public void click04(View view) {//RX 与观察者模式的区别是， Rx是一个被观察者和一个观察者 观察者模式是一个被观察者和多个观察者
         com.kangjj.rxjava.demo.observer_pattern.Observer observer1= new ObserverImpl(); // 警察1  - 观察者
         com.kangjj.rxjava.demo.observer_pattern.Observer observer2= new ObserverImpl(); // 警察2  - 观察者
         com.kangjj.rxjava.demo.observer_pattern.Observer observer3= new ObserverImpl(); // 警察3  - 观察者
