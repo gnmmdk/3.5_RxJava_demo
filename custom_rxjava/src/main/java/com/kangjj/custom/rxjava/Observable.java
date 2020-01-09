@@ -112,7 +112,7 @@ public class Observable<T> {           //类声明的泛型T Int
      * @return
      */
     public <R> Observable<R> map(Function<? super T,? extends R> function){
-        //todo 这里的ObservableMap不是Obervable,而是ObservableOnSubscribe，传入的source也是而是ObservableOnSubscribe
+        //todo 这里的ObservableMap不是Obervable,而是ObservableOnSubscribe，传入的source也是ObservableOnSubscribe
         ObservableMap observableMap = new ObservableMap(source,function);
         return new Observable<R>(observableMap);
     }
